@@ -14,17 +14,17 @@
             <span><button @click.prevent="addItem">Add</button></span>
             <small>adding item...{{newItem}}</small>
 
-
             <h5>List</h5>
             <span>-----------</span>
             <ul v-for="(list, id) in lists" v-bind:key="list.id">
-                <li><input type="checkbox"><button v-on:click="removeItem(id)">delete</button>{{list.item}}</li>
+                <li>
+                    <input type="checkbox" v-on:change="toggleCompleted(list)" v-bind:checked="list.completed">
+                    {{list.item}}
+                    <button v-on:click="removeList(id)">delete</button>
+                </li>
             </ul>
 
-            
-
         </div>
-
 
         <script src="js/vue.min.js"></script>
         <script src="js/main.js"></script>
